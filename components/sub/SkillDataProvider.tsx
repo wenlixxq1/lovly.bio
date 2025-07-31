@@ -4,8 +4,6 @@ import React from 'react'
 import {motion} from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image';
-import { useLanguage } from '@/components/LanguageContext';
-import { getImagePath } from '@/utils/paths';
 
 interface Props {
     src: string;
@@ -18,7 +16,6 @@ const SkillDataProvider = ({ src, width, height, index} : Props) => {
     const {ref, inView} = useInView({
         triggerOnce: true
     })
-    const { t } = useLanguage();
 
     const imageVariants = {
         hidden: {opacity: 0},
@@ -37,10 +34,10 @@ const SkillDataProvider = ({ src, width, height, index} : Props) => {
   className="relative group cursor-pointer"
   >
     <Image
-src={getImagePath(src)}
+src={src}
 width={width}
 height={height}
-alt={t.skill_image}
+alt="Skill Image"
 className="transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg"
     />
     {/* Светящийся эффект при hover */}

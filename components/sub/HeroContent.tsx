@@ -10,7 +10,6 @@ import {
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
-import { getImagePath } from "@/utils/paths";
 
 const HeroContent = () => {
   const { t } = useLanguage();
@@ -64,7 +63,7 @@ const HeroContent = () => {
         className="w-full h-full flex justify-center items-center"
       >
         <Image
-          src={getImagePath("/mainIconsdark.svg")}
+          src="/mainIconsdark.svg"
           alt={t.work_icons}
           height={650}
           width={650}

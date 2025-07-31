@@ -4,7 +4,6 @@ import Image from "next/image";
 import React from "react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/components/LanguageContext";
-import { getImagePath } from "@/utils/paths";
 
 const Navbar = () => {
   const { t } = useLanguage();
@@ -17,7 +16,7 @@ const Navbar = () => {
           className="h-auto w-auto flex flex-row items-center"
         >
           <Image
-            src={getImagePath("/NavLogo.png")}
+            src="/NavLogo.png"
             alt={t.logo}
             width={70}
             height={70}
@@ -54,7 +53,7 @@ const Navbar = () => {
               className="hover:scale-110 transition-transform duration-200"
             >
               <Image
-                src={getImagePath(social.src)}
+                src={social.src}
                 alt={social.name}
                 width={20}
                 height={20}

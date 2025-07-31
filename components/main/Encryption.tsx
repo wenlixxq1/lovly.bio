@@ -6,7 +6,6 @@ import { slideInFromTop } from "@/utils/motion";
 import Image from "next/image";
 
 import { useLanguage } from "@/components/LanguageContext";
-import { getImagePath, getVideoPath } from "@/utils/paths";
 const Encryption = () => {
   const { t } = useLanguage();
   return (
@@ -28,14 +27,14 @@ const Encryption = () => {
       <div className="flex flex-col items-center justify-center translate-y-[-50px] absolute z-[20] w-auto h-auto">
         <div className="flex flex-col items-center group cursor-pointer w-auto h-auto">
           <Image
-            src={getImagePath("/LockTop.png")}
+            src="/LockTop.png"
             alt={t.lock_top}
             width={50}
             height={50}
             className="w-[50px] translate-y-5 transition-all duration-200 group-hover:translate-y-11"
           />
           <Image
-            src={getImagePath("/LockMain.png")}
+            src="/LockMain.png"
             alt={t.lock_main}
             width={70}
             height={70}
@@ -61,7 +60,7 @@ const Encryption = () => {
           playsInline
           preload="false"
           className="w-full h-auto"
-          src={getVideoPath("/encryption.webm")}
+          src="/encryption.webm"
         />
       </div>
     </div>
