@@ -1,0 +1,46 @@
+{
+  "name": "unified-lovly-space-portfolio",
+  "version": "1.0.0",
+  "description": "Unified Space Portfolio - Complete integration of all Lovly projects",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "build": "echo 'No build process needed - static site'",
+    "deploy": "echo 'Ready for deployment'",
+    "dev": "npx live-server . --port=3000"
+  },
+  "keywords": [
+    "portfolio",
+    "space",
+    "web-development",
+    "javascript",
+    "css",
+    "html",
+    "github-api",
+    "3d-effects",
+    "animations"
+  ],
+  "author": {
+    "name": "Artem Lovly",
+    "email": "whylovlygod@icloud.com",
+    "url": "https://github.com/wenlixxq1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wenlixxq1/unified-lovly-space"
+  },
+  "homepage": "https://lovly.space",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#7042f8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Артем Ловли - Unified Space Portfolio</title>
+    <meta name="description" content="Полное портфолио разработчика Артема Ловли - веб-разработка, проекты, навыки и контакты">
+    <meta name="keywords" content="веб-разработчик, JavaScript, React, Node.js, Python, портфолио, Артем Ловли">
+    <meta name="author" content="Артем Ловли">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Артем Ловли - Unified Space Portfolio">
+    <meta property="og:description" content="Полное портфолио разработчика - современные веб-приложения и цифровые решения">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lovly.space">
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js removed for performance optimization -->
+    
+    <style>
+        /* Performance Optimizations */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        
+        /* Simplified easing for performance */
+        :root {
+            --ease: ease;
+        }
+        
+        .cursive {
+            font-family: "Cedarville Cursive", cursive;
+        }
+        
+        .inter {
+            font-family: "Inter", sans-serif;
+        }
+        
+        /* Space Theme Colors and Effects */
+        .Welcome-text {
+            background: linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0.4),
+                rgba(255, 255, 255, 0.4)
+            ),
+            linear-gradient(90.01deg, #e59cff 0.01%, #ba9cff 50.01%, #9cb2ff 100%);
+            background-blend-mode: normal, screen;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .Welcome-box {
+            isolation: isolate;
+            overflow: hidden;
+            align-items: center;
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            border-radius: 32px;
+            box-shadow: inset 0 -7px 11px #a48fff1f;
+            display: flex;
+            position: relative;
+            width: -moz-max-content;
+            width: max-content;
+            transition: 0.45s cubic-bezier(0.6, 0.6, 0, 1) box-shadow;
+        }
+        
+        .button-primary {
+            background: linear-gradient(
+                180deg,
+                rgba(60, 8, 126, 0) 0%,
+                rgba(60, 8, 126, 0.32) 100%
+            ),
+            rgba(113, 47, 255, 0.12);
+            box-shadow: inset 0 0 12px #bf97ff3d;
+            transition: all 0.3s ease;
+        }
+        
+        .button-primary:hover {
+            background: linear-gradient(
+                180deg,
+                rgba(60, 8, 126, 0) 0%,
+                rgba(60, 8, 126, 0.42) 100%
+            ),
+            rgba(113, 47, 255, 0.24);
+            box-shadow: inset 0 0 12px #bf97ff70;
+            transform: translateY(-2px);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .skill-icon {
+            transition: all 0.3s ease;
+            background: rgba(3, 0, 20, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(112, 66, 248, 0.2);
+        }
+        
+        .skill-icon:hover {
+            transform: translateY(-10px) scale(1.1);
+            filter: drop-shadow(0 10px 20px rgba(112, 66, 248, 0.4));
+            border-color: rgba(112, 66, 248, 0.6);
+        }
+        
+        .project-card {
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            will-change: transform;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        .navbar-glass {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #ba9cff;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromTop {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-slideInLeft {
+            animation: slideInFromLeft 1s ease-out forwards;
+        }
+        
+        .animate-slideInRight {
+            animation: slideInFromRight 1s ease-out forwards;
+        }
+        
+        .animate-slideInTop {
+            animation: slideInFromTop 1s ease-out forwards;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #a855f7, #06b6d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2) rotate(10deg);
+            filter: drop-shadow(0 5px 15px rgba(112, 66, 248, 0.6));
+        }
+        
+        /* Enhanced Encryption Section */
+        .encryption-section {
+            background: radial-gradient(ellipse at center, rgba(112, 66, 248, 0.1) 0%, transparent 70%);
+        }
+        
+        /* Lock animations removed for cleaner iOS-style experience */
+        
+        /* GitHub Stats Styling */
+        .github-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(112, 66, 248, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(112, 66, 248, 0.3);
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ba9cff;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        /* Donation Section */
+        .donate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .donate-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: rgba(112, 66, 248, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(112, 66, 248, 0.3);
+        }
+        
+        .donate-label {
+            font-weight: 600;
+            color: #ba9cff;
+        }
+        
+        .donate-address {
+            font-family: monospace;
+            color: #9ca3af;
+            margin: 0 1rem;
+            flex: 1;
+        }
+        
+        .copy-donate-btn {
+            background: rgba(112, 66, 248, 0.2);
+            border: 1px solid rgba(112, 66, 248, 0.4);
+            border-radius: 8px;
+            padding: 0.5rem;
+            color: #ba9cff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-donate-btn:hover {
+            background: rgba(112, 66, 248, 0.3);
+            transform: scale(1.1);
+        }
+        
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(112, 66, 248, 0.1);
+            border: 1px solid rgba(112, 66, 248, 0.3);
+            border-radius: 8px;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active,
+        .lang-btn:hover {
+            background: rgba(112, 66, 248, 0.3);
+            color: #ba9cff;
+        }
+        
+        /* Skills Progress Bars - iOS Style */
+        .skill-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #7042f8, #ba9cff, #00d4ff);
+            border-radius: 20px;
+            transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 0%;
+            box-shadow: 0 0 20px rgba(112, 66, 248, 0.3);
+        }
+        
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+            overflow: hidden;
+        }
+        
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .preloader-content {
+            text-align: center;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(112, 66, 248, 0.3);
+            border-top: 3px solid #7042f8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .social-icon {
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .skill-icon {
+                min-height: 80px;
+                transition: transform 0.2s ease;
+            }
+            
+            .skill-icon:active {
+                transform: scale(0.95);
+            }
+            
+            .mobile-nav-link {
+                transition: all 0.3s ease;
+                border-radius: 12px;
+                margin: 0 16px;
+            }
+            
+            .mobile-nav-link:active {
+                transform: scale(0.98);
+                background-color: rgba(112, 66, 248, 0.1);
+            }
+            
+            .button-primary {
+                min-height: 48px;
+                font-size: 16px;
+            }
+            
+            .lock-group {
+                min-width: 120px;
+                min-height: 120px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .project-card {
+                transition: transform 0.2s ease;
+            }
+            
+            .project-card:active {
+                transform: scale(0.98);
+            }
+        }
+        
+        /* Prevent text selection on interactive elements */
+        .social-icon, .skill-icon, .lock-group, .mobile-menu-btn {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .touch-manipulation {
+            touch-action: manipulation;
+        }
+        
+        .tech-badge {
+            background: rgba(112, 66, 248, 0.1);
+            border: 1px solid rgba(112, 66, 248, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(112, 66, 248, 0.5), transparent);
+        }
+        
+        /* Starfield styles removed for maximum performance */
+        
+        /* Hologram Effect */
+        .hologram-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        
+        #hologram-canvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        
+        .hologram-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 30%, rgba(112, 66, 248, 0.1) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'space-dark': '#030014',
+                        'space-purple': '#7042f8',
+                        'space-light-purple': '#ba9cff',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white overflow-x-hidden inter">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="loader"></div>
+            <p class="text-white">Загрузка космического портфолио...</p>
+        </div>
+    </div>
+    
+    <!-- Starfield Background -->
+    <!-- Starfield canvas removed for maximum performance -->
+    
+    <!-- Navbar -->
+    <nav class="w-full h-16 fixed top-0 z-50 navbar-glass">
+        <div class="w-full h-full flex items-center justify-between max-w-7xl mx-auto px-6">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center hover:rotate-180 transition-transform duration-500">
+                    <i class="fas fa-rocket text-white text-xl"></i>
+                </div>
+                <span class="font-bold text-gray-300 hidden md:block">Lovly Universe</span>
+            </a>
+            
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-6 bg-black bg-opacity-20 backdrop-blur-xl px-8 py-3 rounded-full border border-white border-opacity-15 shadow-lg">
+                <a href="#home" class="nav-link text-gray-200 hover:text-space-light-purple cursor-pointer" data-i18n="nav.about">Обо мне</a>
+                <a href="#skills" class="nav-link text-gray-200 hover:text-space-light-purple cursor-pointer" data-i18n="nav.skills">Навыки</a>
+                <a href="#projects" class="nav-link text-gray-200 hover:text-space-light-purple cursor-pointer" data-i18n="nav.projects">Проекты</a>
+                <a href="#github" class="nav-link text-gray-200 hover:text-space-light-purple cursor-pointer" data-i18n="nav.github">GitHub</a>
+                <a href="#encryption" class="nav-link text-gray-200 hover:text-space-light-purple cursor-pointer">Безопасность</a>
+                <a href="#donate" class="nav-link text-gray-200 hover:text-space-light-purple cursor-pointer" data-i18n="nav.donate">Поддержка</a>
+                <a href="#contact" class="nav-link text-gray-200 hover:text-space-light-purple cursor-pointer" data-i18n="nav.contact">Контакты</a>
+            </div>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher hidden md:flex">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden mobile-menu-btn text-gray-300 text-2xl hover:text-space-light-purple transition-colors">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed top-16 left-0 w-full bg-space-dark bg-opacity-95 backdrop-blur-lg z-40 transform -translate-y-full transition-transform duration-300 md:hidden">
+        <div class="flex flex-col py-4">
+            <a href="#home" class="mobile-nav-link py-3 px-6 text-gray-200 hover:text-space-light-purple" data-i18n="nav.about">Обо мне</a>
+            <a href="#skills" class="mobile-nav-link py-3 px-6 text-gray-200 hover:text-space-light-purple" data-i18n="nav.skills">Навыки</a>
+            <a href="#projects" class="mobile-nav-link py-3 px-6 text-gray-200 hover:text-space-light-purple" data-i18n="nav.projects">Проекты</a>
+            <a href="#github" class="mobile-nav-link py-3 px-6 text-gray-200 hover:text-space-light-purple" data-i18n="nav.github">GitHub</a>
+            <a href="#encryption" class="mobile-nav-link py-3 px-6 text-gray-200 hover:text-space-light-purple">Безопасность</a>
+            <a href="#donate" class="mobile-nav-link py-3 px-6 text-gray-200 hover:text-space-light-purple" data-i18n="nav.donate">Поддержка</a>
+            <a href="#contact" class="mobile-nav-link py-3 px-6 text-gray-200 hover:text-space-light-purple" data-i18n="nav.contact">Контакты</a>
+            <div class="language-switcher flex justify-center mt-4">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </div>
+    
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center px-6 py-20">
+            <div class="max-w-6xl mx-auto text-center">
+                <!-- Hologram Avatar -->
+                <div class="hologram-container mb-8 floating">
+                    <canvas id="hologram-canvas"></canvas>
+                    <div class="hologram-overlay"></div>
+                </div>
+                
+                <!-- Main Title -->
+                <div class="Welcome-box mx-auto mb-8 px-8 py-4">
+                    <h1 class="Welcome-text text-4xl md:text-6xl font-bold cursive" data-i18n="header.title">
+                        Артем Lovly
+                    </h1>
+                </div>
+                
+                <!-- Subtitle -->
+                <p class="text-xl md:text-2xl text-gray-300 mb-6 animate-slideInTop" data-i18n="header.subtitle">
+                    Full-Stack Разработчик & Космический Исследователь
+                </p>
+                
+                <!-- Typing Animation -->
+                <div class="typing-animation mb-8 animate-slideInLeft">
+                    <span class="typing-text text-lg text-space-light-purple" data-i18n="header.typing">
+                        Создаю современные веб-приложения в бесконечном космосе возможностей
+                    </span>
+                </div>
+                
+                <!-- Status Badge -->
+                <div class="status-badge inline-flex items-center space-x-2 bg-green-500 bg-opacity-20 px-4 py-2 rounded-full border border-green-500 border-opacity-40 mb-8">
+                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span class="text-green-400 text-sm" data-i18n="status.available">Доступен для проектов</span>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slideInRight">
+                    <a href="#projects" class="button-primary px-8 py-4 rounded-full text-white font-semibold hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-rocket mr-2"></i>
+                        <span data-i18n="buttons.projects">Мои Проекты</span>
+                    </a>
+                    <a href="#contact" class="border border-space-purple border-opacity-50 px-8 py-4 rounded-full text-space-light-purple font-semibold hover:bg-space-purple hover:bg-opacity-20 transition-all duration-300">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        <span data-i18n="buttons.contact">Связаться</span>
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-6 mt-12">
+                    <a href="https://github.com/wenlixxq1" target="_blank" class="social-icon w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://t.me/lovlyher" target="_blank" class="social-icon w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                        <i class="fab fa-telegram text-xl"></i>
+                    </a>
+                    <a href="https://tiktok.com/@whylovlygod" target="_blank" class="social-icon w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-500 transition-colors">
+                        <i class="fab fa-tiktok text-xl"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@wenlixxq" target="_blank" class="social-icon w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-500 transition-colors">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                    <a href="https://www.twitch.tv/whylovlygod" target="_blank" class="social-icon w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center hover:bg-purple-500 transition-colors">
+                        <i class="fab fa-twitch text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="section-divider mb-12"></div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text" data-i18n="about.title">
+                    О себе
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <p class="text-lg text-gray-300 leading-relaxed" data-i18n="about.intro">
+                            Привет! Меня зовут Артём Ловли, мое прозвище Ловли, и мне 17 лет.
+                        </p>
+                        <p class="text-lg text-gray-300 leading-relaxed" data-i18n="about.description">
+                            В конце концов, я делаю разные вещи, но в основном это программирование или что-то о программировании.
+                        </p>
+                        <p class="text-lg text-gray-300 leading-relaxed" data-i18n="about.conclusion">
+                            Честно говоря, мне нечего сказать о себе, так что... Давайте лучше посмотрим на мои проекты!
+                        </p>
+                        
+                        <!-- Voice greeting removed for cleaner iOS-style experience -->
+                    </div>
+                    
+                    <!-- Random Fact Section -->
+                    <div class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl">
+                        <h3 class="text-2xl font-bold mb-4 text-space-light-purple">Случайный факт</h3>
+                        <button id="factBtn" class="button-primary px-6 py-3 rounded-full text-white font-semibold mb-4">
+                            <span data-i18n="about.factBtn">Узнать случайный факт обо мне</span>
+                        </button>
+                        <p id="factText" class="text-gray-300 leading-relaxed min-h-[60px]"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="section-divider mb-12"></div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text" data-i18n="skills.title">
+                    Навыки
+                </h2>
+                
+                <!-- Skills Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                    <div class="skill-icon p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300">
+                        <i class="fab fa-node-js text-4xl text-green-500 mb-4"></i>
+                        <h3 class="font-semibold text-white">Node.js</h3>
+                        <p class="text-sm text-gray-400">Backend</p>
+                    </div>
+                    <div class="skill-icon p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300">
+                        <i class="fab fa-js-square text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="font-semibold text-white">JavaScript</h3>
+                        <p class="text-sm text-gray-400">Frontend</p>
+                    </div>
+                    <div class="skill-icon p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300">
+                        <i class="fab fa-python text-4xl text-blue-500 mb-4"></i>
+                        <h3 class="font-semibold text-white">Python</h3>
+                        <p class="text-sm text-gray-400">AI & Data</p>
+                    </div>
+                    <div class="skill-icon p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300">
+                        <i class="fab fa-css3-alt text-4xl text-blue-400 mb-4"></i>
+                        <h3 class="font-semibold text-white">CSS</h3>
+                        <p class="text-sm text-gray-400">Styling</p>
+                    </div>
+                </div>
+                
+                <!-- Skills Progress Bars -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-semibold">Node.js</span>
+                                <span class="text-space-light-purple">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-semibold">JavaScript</span>
+                                <span class="text-space-light-purple">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-semibold">Python</span>
+                                <span class="text-space-light-purple">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-semibold">CSS</span>
+                                <span class="text-space-light-purple">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-6 relative">
+            <div class="matrix-rain"></div>
+            <div class="max-w-6xl mx-auto">
+                <div class="section-divider mb-12"></div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text" data-i18n="projects.title">
+                    Проекты
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1: QuantumDev -->
+                    <div class="project-card p-6 rounded-2xl">
+                        <div class="text-4xl mb-4">🌌</div>
+                        <h3 class="text-xl font-bold text-white mb-3">QuantumDev</h3>
+                        <p class="text-gray-300 mb-4">Интерактивное мультивселенное портфолио разработчика с 6 уникальными измерениями</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs">HTML</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs">CSS</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs">JavaScript</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://wenlixxq1.github.io/QuantumDev/" target="_blank" class="button-primary px-4 py-2 rounded-lg text-sm">
+                                Посмотреть <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                            <a href="https://github.com/wenlixxq1/QuantumDev" target="_blank" class="border border-space-purple border-opacity-50 px-4 py-2 rounded-lg text-sm hover:bg-space-purple hover:bg-opacity-20 transition-all">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2: lovly.ru -->
+                    <div class="project-card p-6 rounded-2xl">
+                        <div class="text-4xl mb-4">🌐</div>
+                        <h3 class="text-xl font-bold text-white mb-3">lovly.ru</h3>
+                        <p class="text-gray-300 mb-4">Персональный сайт-портфолио с современным дизайном и 3D эффектами</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs">HTML</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs">CSS</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs">Three.js</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://wenlixxq1.github.io/lovly.ru/" target="_blank" class="button-primary px-4 py-2 rounded-lg text-sm">
+                                Посмотреть <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                            <a href="https://github.com/wenlixxq1/lovly.ru" target="_blank" class="border border-space-purple border-opacity-50 px-4 py-2 rounded-lg text-sm hover:bg-space-purple hover:bg-opacity-20 transition-all">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3: Space Portfolio -->
+                    <div class="project-card p-6 rounded-2xl">
+                        <div class="text-4xl mb-4">🚀</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Space Portfolio</h3>
+                        <p class="text-gray-300 mb-4">Космическое портфолио с продвинутыми визуальными эффектами и анимациями</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs">HTML</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs">TailwindCSS</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs">Canvas</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="button-primary px-4 py-2 rounded-lg text-sm">
+                                Текущий сайт <i class="fas fa-star ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- GitHub Stats Section -->
+        <section id="github" class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="section-divider mb-12"></div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text" data-i18n="github.title">
+                    GitHub Статистика
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- GitHub Profile -->
+                    <div class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <img id="githubAvatar" src="" alt="GitHub Avatar" class="w-16 h-16 rounded-full" />
+                            <div>
+                                <h3 id="githubName" class="text-xl font-bold text-white">Loading...</h3>
+                                <p id="githubBio" class="text-gray-300" data-i18n="github.loading">Загрузка...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="github-stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number" id="githubRepos">-</span>
+                                <span class="stat-label" data-i18n="github.repositories">Репозитории</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="githubFollowers">-</span>
+                                <span class="stat-label" data-i18n="github.followers">Подписчики</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="githubFollowing">-</span>
+                                <span class="stat-label" data-i18n="github.following">Подписки</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Repositories -->
+                    <div class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl">
+                        <h3 class="text-xl font-bold text-white mb-6" data-i18n="github.recentRepos">Последние репозитории</h3>
+                        <div id="githubReposList" class="space-y-4">
+                            <div class="flex items-center justify-center py-8">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Encryption/Security Section -->
+        <section id="encryption" class="py-20 px-6 encryption-section">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="section-divider mb-12"></div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">
+                    Безопасность & Шифрование
+                </h2>
+                
+                <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                    В цифровом мире безопасность данных критически важна. Я использую современные методы шифрования и защиты информации.
+                </p>
+                
+                <!-- Black Hole Video Background -->
+                <div class="relative mb-12 rounded-3xl overflow-hidden shadow-2xl max-w-2xl mx-auto">
+                    <video 
+                        autoplay 
+                        muted 
+                        loop 
+                        class="w-full h-64 object-cover opacity-80"
+                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect fill='%23000' width='400' height='200'/%3E%3C/svg%3E"
+                    >
+                        <source src="blackhole.webm" type="video/webm">
+                        <source src="encryption.webm" type="video/webm">
+                    </video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-lg font-semibold">Космическая безопасность</h3>
+                        <p class="text-sm opacity-80">Защита данных на уровне вселенной</p>
+                    </div>
+                </div>
+                
+                <!-- Lock animation removed for cleaner iOS-style experience -->
+                
+                <!-- Security Features -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl hover:bg-opacity-35 transition-all duration-300">
+                        <i class="fas fa-shield-alt text-4xl text-green-400 mb-6"></i>
+                        <h3 class="text-xl font-bold text-white mb-4">Защита данных</h3>
+                        <p class="text-gray-300">Использование современных алгоритмов шифрования для защиты пользовательских данных</p>
+                    </div>
+                    
+                    <div class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl hover:bg-opacity-35 transition-all duration-300">
+                        <i class="fas fa-key text-4xl text-yellow-400 mb-6"></i>
+                        <h3 class="text-xl font-bold text-white mb-4">Аутентификация</h3>
+                        <p class="text-gray-300">Многофакторная аутентификация и безопасное управление сессиями</p>
+                    </div>
+                    
+                    <div class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl hover:bg-opacity-35 transition-all duration-300">
+                        <i class="fas fa-network-wired text-4xl text-blue-400 mb-6"></i>
+                        <h3 class="text-xl font-bold text-white mb-4">Безопасные соединения</h3>
+                        <p class="text-gray-300">HTTPS, SSL/TLS сертификаты и защищенные API endpoints</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Donation Section -->
+        <section id="donate" class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="section-divider mb-12"></div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 gradient-text" data-i18n="donate.title">
+                    Поддержка
+                </h2>
+                
+                <div class="text-center mb-12">
+                    <p class="text-xl text-gray-300 mb-4" data-i18n="donate.intro">
+                        Я не буду осуждать тебя, если ты полностью пропустил этот раздел
+                    </p>
+                    <p class="text-lg text-gray-400" data-i18n="donate.description">
+                        Если вы по какой-то причине хотите поддержать меня, я принимаю все, что указано ниже. Заранее огромное спасибо!
+                    </p>
+                </div>
+                
+                <div class="donate-grid">
+                    <!-- Crypto Section -->
+                    <div class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl">
+                        <h3 class="text-2xl font-bold text-white mb-6 text-center">Криптовалюты</h3>
+                        <p class="text-gray-400 text-center mb-6">Нажми чтобы скопировать адрес</p>
+                        
+                        <div class="space-y-4">
+                            <div class="donate-item">
+                                <span class="donate-label">TON:</span>
+                                <span class="donate-address">UQCwD1nL8nue2n..TP</span>
+                                <button class="copy-donate-btn" data-address="UQCwD1nL8nue2nMxjhU5q0aTI-MWmZ0qJu_WSZtre7TPqwTP">
+                                    📋
+                                </button>
+                            </div>
+                            
+                            <div class="donate-item">
+                                <span class="donate-label">BTC:</span>
+                                <span class="donate-address">bc1q4uccv7td6s..yd</span>
+                                <button class="copy-donate-btn" data-address="bc1q4uccv7td6sapyfxws4ltq7ejwjlzndycntppyd">
+                                    📋
+                                </button>
+                            </div>
+                            
+                            <div class="donate-item">
+                                <span class="donate-label">ETH:</span>
+                                <span class="donate-address">0x618943dB2E48..72</span>
+                                <button class="copy-donate-btn" data-address="0x618943dB2E48B878a61aa0C2325b006896c66572">
+                                    📋
+                                </button>
+                            </div>
+                            
+                            <div class="donate-item">
+                                <span class="donate-label">SOL:</span>
+                                <span class="donate-address">8KvbnxuWg6Exwb..Hk</span>
+                                <button class="copy-donate-btn" data-address="8KvbnxuWg6Exwb5HP38FoAXv4g3vUatYSNcHp3gVrGHk">
+                                    📋
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Fiat Section -->
+                    <div class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl">
+                        <h3 class="text-2xl font-bold text-white mb-6 text-center">Fiat</h3>
+                        
+                        <div class="donate-item">
+                            <span class="donate-label">Tinkoff:</span>
+                            <code class="donate-address">2200 7008 8597 5625</code>
+                            <a href="https://www.tinkoff.ru/rm/r_bjCqYQpqeb.xkkynFDLIO/56ihz62719" target="_blank" class="copy-donate-btn">
+                                💳
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-6">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="section-divider mb-12"></div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text" data-i18n="contact.title">
+                    Контакты
+                </h2>
+                
+                <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                    Готов обсудить ваш проект или возможности сотрудничества. Свяжитесь со мной любым удобным способом!
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <a href="mailto:whylovlygod@icloud.com" class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl hover:bg-opacity-35 hover:border-opacity-25 transition-all duration-300 group">
+                        <i class="fas fa-envelope text-4xl text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-xl font-bold text-white mb-2">Email</h3>
+                        <p class="text-gray-300">whylovlygod@icloud.com</p>
+                    </a>
+                    
+                    <a href="https://t.me/lovlyher" target="_blank" class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl hover:bg-opacity-35 hover:border-opacity-25 transition-all duration-300 group">
+                        <i class="fab fa-telegram text-4xl text-blue-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-xl font-bold text-white mb-2">Telegram</h3>
+                        <p class="text-gray-300">@lovlyher</p>
+                    </a>
+                    
+                    <a href="https://github.com/wenlixxq1" target="_blank" class="bg-black bg-opacity-25 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-15 shadow-2xl hover:bg-opacity-35 hover:border-opacity-25 transition-all duration-300 group">
+                        <i class="fab fa-github text-4xl text-gray-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-xl font-bold text-white mb-2">GitHub</h3>
+                        <p class="text-gray-300">wenlixxq1</p>
+                    </a>
+                </div>
+                
+                <!-- Additional Social Links -->
+                <div class="flex justify-center space-x-6">
+                    <a href="https://tiktok.com/@whylovlygod" target="_blank" class="social-icon w-16 h-16 bg-black bg-opacity-30 backdrop-blur-xl rounded-full flex items-center justify-center border border-white border-opacity-15 hover:bg-opacity-50 hover:scale-110 transition-all duration-300 shadow-lg">
+                        <i class="fab fa-tiktok text-2xl text-pink-400"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@wenlixxq" target="_blank" class="social-icon w-16 h-16 bg-black bg-opacity-30 backdrop-blur-xl rounded-full flex items-center justify-center border border-white border-opacity-15 hover:bg-opacity-50 hover:scale-110 transition-all duration-300 shadow-lg">
+                        <i class="fab fa-youtube text-2xl text-red-400"></i>
+                    </a>
+                    <a href="https://www.twitch.tv/whylovlygod" target="_blank" class="social-icon w-16 h-16 bg-black bg-opacity-30 backdrop-blur-xl rounded-full flex items-center justify-center border border-white border-opacity-15 hover:bg-opacity-50 hover:scale-110 transition-all duration-300 shadow-lg">
+                        <i class="fab fa-twitch text-2xl text-purple-400"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-space-purple border-opacity-30">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-400">
+                &copy; 2024 Артем Lovly. Все права защищены. 
+                <span class="text-space-light-purple">Создано с ❤️ в космосе</span>
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="performance-config.js"></script>
+    <script src="config.js"></script>
+    <script src="utils.js"></script>
+    <!-- Starfield script removed for maximum performance -->
+    <script src="github-api.js"></script>
+    <script src="i18n.js"></script>
+    <script src="visual-effects.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
